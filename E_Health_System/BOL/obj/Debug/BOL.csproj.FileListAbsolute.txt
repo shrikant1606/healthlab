@@ -1,0 +1,6 @@
+D:\PG-DAC\DAC\Project\E_Health_System\BOL\obj\Debug\BOL.csprojAssemblyReference.cache
+D:\PG-DAC\DAC\Project\E_Health_System\BOL\obj\Debug\BOL.csproj.CoreCompileInputs.cache
+D:\PG-DAC\DAC\Project\E_Health_System\BOL\bin\Debug\BOL.dll
+D:\PG-DAC\DAC\Project\E_Health_System\BOL\bin\Debug\BOL.pdb
+D:\PG-DAC\DAC\Project\E_Health_System\BOL\obj\Debug\BOL.dll
+D:\PG-DAC\DAC\Project\E_Health_System\BOL\obj\Debug\BOL.pdb

@@ -1,0 +1,8 @@
+D:\PG-DAC\DAC\Project\E_Health_System\Database\bin\Debug\e_health_db.mdf
+D:\PG-DAC\DAC\Project\E_Health_System\Database\bin\Debug\e_health_db_log.ldf
+D:\PG-DAC\DAC\Project\E_Health_System\Database\bin\Debug\Database.dll
+D:\PG-DAC\DAC\Project\E_Health_System\Database\bin\Debug\Database.pdb
+D:\PG-DAC\DAC\Project\E_Health_System\Database\obj\Debug\Database.csprojAssemblyReference.cache
+D:\PG-DAC\DAC\Project\E_Health_System\Database\obj\Debug\Database.csproj.CoreCompileInputs.cache
+D:\PG-DAC\DAC\Project\E_Health_System\Database\obj\Debug\Database.dll
+D:\PG-DAC\DAC\Project\E_Health_System\Database\obj\Debug\Database.pdb
