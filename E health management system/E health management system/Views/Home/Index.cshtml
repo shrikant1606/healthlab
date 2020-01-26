@@ -1,0 +1,125 @@
+﻿
+
+
+<!-- Start slides -->
+<div id="slides" class="cover-slides">
+    <div class="slideshow-container" style="align-content:center">
+
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="~/Content/images/slider-01.jpg" style="width:100%">
+            <div class="text">Caption One</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="~/Content/images/slider-02.jpg" style="width:100%">
+            <div class="text">Caption Two</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="~/Content/images/slider-03.jpg" style="width:100%">
+            <div class="text">Caption Three</div>
+        </div>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+    </div>
+    <script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 3000); // Change image every 2 seconds
+}
+    </script>
+
+    <!-- End slides -->
+    <!-- Start About -->
+    <div class="about-section-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <img src="~/Content/images/preloader.gif" alt="" class="img-fluid">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 text-center">
+                    <div class="inner-column">
+                        <h1>Welcome To <span>E Health Management System</span></h1>
+                        <p>Write anything</p>
+                        <a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Registration</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End About -->
+    <!-- Start QT -->
+    <div class="qt-box qt-background">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto text-left">
+                    <p class="lead ">
+                        
+                    </p>
+                    <span class="lead">The Good Listeners Group</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End QT -->
+    <!-- Start Contact info -->
+    <div class="contact-imfo-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <i class="fa fa-volume-control-phone"></i>
+                    <div class="overflow-hidden">
+                        <h4>Phone</h4>
+                        <p class="lead">
+                           
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa fa-envelope"></i>
+                    <div class="overflow-hidden">
+                        <h4>Email</h4>
+                        <p class="lead">
+                            sanyam@gmail.com
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa fa-map-marker"></i>
+                    <div class="overflow-hidden">
+                        <h4>Location</h4>
+                        <p class="lead">
+                            800,
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Contact info -->
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>

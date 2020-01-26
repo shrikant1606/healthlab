@@ -1,0 +1,30 @@
+﻿@model IEnumerable<BOL.Appointment>
+@{
+    ViewBag.Title = "PatientAppointment";
+}
+
+<h2>PatientAppointment</h2>
+<div style="font-family:Arial">
+    <table style="font-family:Arial">
+        <tr>
+            <th>Patient Name</th>
+            <th>Date</th>
+            <th>Time Slot</th>
+            <th>Status</th>
+        </tr>
+        @foreach (BOL.Appointment appointment in @Model)
+        {
+            <tr>
+                <td>@appointment.Appointmentid</td>
+                <td>@appointment.Pfirstname @appointment.Plastname</td>
+                <td>@appointment.Timeslot</td>
+                <td>@appointment.Date</td>
+                <td>@appointment.Status</td>
+                <td>@Html.ActionLink("Create Presciption", "CreatePrescription", "Doctor", new { appointment.Appointmentid, appointment.Pfirstname,
+                                                                                                   appointment.Plastname, appointment.Timeslot,
+                                                                                                   appointment.Date})</td>
+            </tr>
+        }
+    </table>
+        @Html.ActionLink("Home", "Index", "Doctor")
+</div>

@@ -1,9 +1,0 @@
-D:\PG-DAC\DAC\Project\E_Health_System\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
-D:\PG-DAC\DAC\Project\E_Health_System\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
-D:\PG-DAC\DAC\Project\E_Health_System\DAL\bin\Debug\DAL.dll
-D:\PG-DAC\DAC\Project\E_Health_System\DAL\bin\Debug\DAL.pdb
-D:\PG-DAC\DAC\Project\E_Health_System\DAL\bin\Debug\BOL.dll
-D:\PG-DAC\DAC\Project\E_Health_System\DAL\bin\Debug\BOL.pdb
-D:\PG-DAC\DAC\Project\E_Health_System\DAL\obj\Debug\DAL.csproj.CopyComplete
-D:\PG-DAC\DAC\Project\E_Health_System\DAL\obj\Debug\DAL.dll
-D:\PG-DAC\DAC\Project\E_Health_System\DAL\obj\Debug\DAL.pdb

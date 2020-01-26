@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detail</h2>
+<table style="font-family:Arial">
+    <tr>
+        <td><b>Name :</b></td>
+        <td>Dr. @Model.Firstname @Model.Lastname</td>
+    </tr>
+    <tr>
+        <td><b>Address :</b></td>
+        <td>@Model.Address, @Model.City, @Model.State</td>
+    </tr>
+    <tr>
+        <td><b>Mobile No.:</b></td>
+        <td>@Model.Mobile</td>
+    </tr>
+    <tr>
+        <td><b>Email:</b></td>
+        <td>@Model.Email</td>
+    </tr>
+    <tr>
+        <td><b>Specialization:</b></td>
+        <td>@Model.Specialization</td>
+    </tr>
+    <tr>
+        <td><b>Certification:</b></td>
+        <td>@Model.Certification</td>
+    </tr>
+    <tr>
+        <td><b>Checkin :</b></td>
+        <td>@Model.Checkin</td>
+    </tr>
+    <tr>
+        <td><b>Checkout :</b></td>
+        <td>@Model.Checkout</td>
+    </tr>
+    <tr>
+        <td><b>Fees :</b></td>
+        <td>@Model.Fees</td>
+    </tr>
+    
+    <tr>
+        <td>
+            @Html.ActionLink("Book Appointment", "BookAppointment", "Patient", new { name = Model.Firstname })
+        </td>
+
+    </tr>
+
+</table>
