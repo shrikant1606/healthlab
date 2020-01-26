@@ -16,13 +16,6 @@ namespace E_health.Controllers
             return View();
         }
         
-        public ActionResult PatientAppointment()
-        {
-            List<Appointment> patientsList = new List<Appointment>();
-            patientsList = AppointmentDAL.GetAll();
-            return View(patientsList);
-        }
-
         [HttpGet]
         [ActionName("Create")]
         public ActionResult Create_Get()
@@ -67,15 +60,23 @@ namespace E_health.Controllers
                 return View();
             }
         }
-        
+
+        public ActionResult PatientAppointment()
+        {
+            string username = TempData["username"].ToString();
+            TempData.Keep();
+            List<Appointment> patientsList = new List<Appointment>();
+            patientsList = AppointmentDAL.GetAll(username);
+            return View(patientsList);
+        }
+
         public ActionResult Search()
         {
             return View();
         }
       
-        public ActionResult Details(int appointmentid, string firstName,string lastName, string timeslot, string date)
+        public ActionResult Details(string firstName,string lastName, string timeslot, string date)
         {
-            TempData["appointmentid"] = appointmentid;
             TempData["firstname"] = firstName;
             TempData["lastname"] = lastName;
             TempData["timeslot"] = timeslot;

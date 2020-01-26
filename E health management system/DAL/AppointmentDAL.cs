@@ -18,8 +18,10 @@ namespace DAL
             conString = ConfigurationManager.ConnectionStrings["e_health_db"].ConnectionString;
         }
 
-        public static List<Appointment> GetAll()
+        public static List<Appointment> GetAll(string username)
         {
+            int dinfoid=0;
+            
             List<Appointment> appointments = new List<Appointment>();
             try
             {
@@ -27,10 +29,30 @@ namespace DAL
                 {
                     if (con.State == ConnectionState.Closed)
                         con.Open();
-                    string query = "SELECT PatientInfo.firstname,PatientInfo.lastname,AppointmentMaster.timeslot,AppointmentMaster.date,AppointmentMaster.status FROM patientInfo INNER JOIN AppointmentMaster  on PatientInfo.pinfoid=AppointmentMaster.pinfoid";
-                    SqlCommand cmd = new SqlCommand(query, con);
 
+                    string query = "SELECT dinfo from DoctorInfo where username=@username";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.Add(new SqlParameter("@username", username));
                     SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader != null)
+                    {
+                        if (reader.HasRows)
+                        {
+                            if (reader.Read())
+                            {
+                                {
+                                    dinfoid = int.Parse(reader["dinfoid"].ToString());
+                                };
+                            }
+                            reader.Close();
+                        }
+                    }
+
+
+                    query = "SELECT AppointmentMaster.appointmentid,PatientInfo.firstname,PatientInfo.lastname,AppointmentMaster.timeslot,AppointmentMaster.date,AppointmentMaster.status FROM patientInfo INNER JOIN AppointmentMaster  on PatientInfo.pinfoid=AppointmentMaster.pinfoid where AppointmentMaster.dinfoid=@dinfoid";
+                    cmd = new SqlCommand(query, con);
+                    cmd.Parameters.Add(new SqlParameter("@dinfoid", dinfoid));
+                    reader = cmd.ExecuteReader();
                     if (reader != null)
                     {
                         if (reader.HasRows)
@@ -39,6 +61,7 @@ namespace DAL
                             {
                                 Appointment appointment = new Appointment()
                                 {
+                                    Appointmentid = int.Parse(reader["appointmentid"].ToString()),
                                     Pfirstname = reader["firstname"].ToString(),
                                     Plastname = reader["lastname"].ToString(),
                                     Timeslot = reader["timeslot"].ToString(),
