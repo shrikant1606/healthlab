@@ -96,13 +96,25 @@ namespace E_health.Controllers
         [ActionName("CreatePrescription")]
         public ActionResult CreatePrescription_Post(string pfirstname, string plastname, string date, string timeslot)
         {    // Retrieve form data using form collection 
-            Doctor doctor = new Doctor();
-            
-            TryUpdateModel(doctor);
+            Prescription prescription = new Prescription();
+            prescription.Appointmentid = int.Parse(TempData["appointmentid"].ToString());
+            TempData.Keep();
+            prescription.Dusername = TempData["username"].ToString();
+            TempData.Keep();
+            prescription.Pfirstname = TempData["firstname"].ToString();
+            TempData.Keep();
+            prescription.Plastname = TempData["lastname"].ToString();
+            TempData.Keep();
+            prescription.Timeslot = TempData["timeslot"].ToString();
+            TempData.Keep();
+            prescription.Date = TempData["date"].ToString();
+            TempData.Keep();
+
+            TryUpdateModel(prescription);
             if (ModelState.IsValid)
             {
-                DoctorDAL.Insert(doctor);
-                return RedirectToAction("Login");
+                PrescriptionDAL.CreatePrescription(prescription);
+                return RedirectToAction("Index","Doctor");
             }
             else
             {

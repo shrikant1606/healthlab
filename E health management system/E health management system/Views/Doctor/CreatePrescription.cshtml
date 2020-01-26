@@ -12,17 +12,11 @@
 {
     @Html.ValidationSummary(true)
 <fieldset>
-    <h3>@TempData["username"]</h3>
-    @TempData["appointmentid"]
-    @TempData["firstname"] @TempData["lastname"]
-    @TempData["date"]
-    @TempData["timeslot"]
-    <div class="editor-label">
-        @Html.LabelFor(model => model.Pfirstname)
-    </div>
-    <div class="editor-field">
-        @Html.TextBoxFor(model => TempData["firstname"])
-    </div>
+    <p>Appointment ID : @TempData["appointmentid"]</p>
+    <p>Patient Name : @TempData["firstname"] @TempData["lastname"]</p>
+    <p>Date : @TempData["date"]</p>
+    <p>Time Slot : @TempData["timeslot"]</p>
+
     <div class="editor-label">
         @Html.LabelFor(model => model.Details)
     </div>
