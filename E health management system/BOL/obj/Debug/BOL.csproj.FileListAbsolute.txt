@@ -1,0 +1,21 @@
+D:\PG-DAC\DAC\Project\E_Health_System\BOL\obj\Debug\BOL.csproj.CoreCompileInputs.cache
+D:\PG-DAC\DAC\Project\E_Health_System\BOL\bin\Debug\BOL.dll
+D:\PG-DAC\DAC\Project\E_Health_System\BOL\bin\Debug\BOL.pdb
+D:\PG-DAC\DAC\Project\E_Health_System\BOL\obj\Debug\BOL.dll
+D:\PG-DAC\DAC\Project\E_Health_System\BOL\obj\Debug\BOL.pdb
+C:\Users\dacstudent\Desktop\Sanyam - Kaushik\Project\E_Health_System\BOL\bin\Debug\BOL.dll
+C:\Users\dacstudent\Desktop\Sanyam - Kaushik\Project\E_Health_System\BOL\bin\Debug\BOL.pdb
+C:\Users\dacstudent\Desktop\Sanyam - Kaushik\Project\E_Health_System\BOL\obj\Debug\BOL.csproj.CoreCompileInputs.cache
+C:\Users\dacstudent\Desktop\Sanyam - Kaushik\Project\E_Health_System\BOL\obj\Debug\BOL.dll
+C:\Users\dacstudent\Desktop\Sanyam - Kaushik\Project\E_Health_System\BOL\obj\Debug\BOL.pdb
+C:\Users\Harshu\Desktop\project\E_Health_System\BOL\bin\Debug\BOL.dll
+C:\Users\Harshu\Desktop\project\E_Health_System\BOL\bin\Debug\BOL.pdb
+C:\Users\Harshu\Desktop\project\E_Health_System\BOL\obj\Debug\BOL.csproj.CoreCompileInputs.cache
+C:\Users\Harshu\Desktop\project\E_Health_System\BOL\obj\Debug\BOL.dll
+C:\Users\Harshu\Desktop\project\E_Health_System\BOL\obj\Debug\BOL.pdb
+C:\Users\Harshu\Desktop\project\E_Health_System\BOL\obj\Debug\BOL.csprojAssemblyReference.cache
+C:\Users\Harshu\Desktop\project\Project_Code\E health management system\BOL\bin\Debug\BOL.dll
+C:\Users\Harshu\Desktop\project\Project_Code\E health management system\BOL\bin\Debug\BOL.pdb
+C:\Users\Harshu\Desktop\project\Project_Code\E health management system\BOL\obj\Debug\BOL.csproj.CoreCompileInputs.cache
+C:\Users\Harshu\Desktop\project\Project_Code\E health management system\BOL\obj\Debug\BOL.dll
+C:\Users\Harshu\Desktop\project\Project_Code\E health management system\BOL\obj\Debug\BOL.pdb

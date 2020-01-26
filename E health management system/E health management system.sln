@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.28307.1000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E health management system", "E health management system\E health management system.csproj", "{1DAD775B-9198-40C7-BF9B-E967E46AAF91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BOL", "..\E_Health_System\BOL\BOL.csproj", "{B7029581-2852-401F-8B23-5A060147D0EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BOL", "BOL\BOL.csproj", "{B7029581-2852-401F-8B23-5A060147D0EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "..\E_Health_System\DAL\DAL.csproj", "{525F2235-2543-4D4E-9F68-03E0B7CEC6B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{525F2235-2543-4D4E-9F68-03E0B7CEC6B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -305,11 +305,11 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\E_Health_System\BOL\BOL.csproj">
+    <ProjectReference Include="..\BOL\BOL.csproj">
       <Project>{b7029581-2852-401f-8b23-5a060147d0ea}</Project>
       <Name>BOL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\E_Health_System\DAL\DAL.csproj">
+    <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{525f2235-2543-4d4e-9f68-03e0b7cec6b8}</Project>
       <Name>DAL</Name>
     </ProjectReference>

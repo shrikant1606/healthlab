@@ -1,0 +1,36 @@
+D:\PG-DAC\DAC\Project\E_Health_System\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+D:\PG-DAC\DAC\Project\E_Health_System\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\PG-DAC\DAC\Project\E_Health_System\DAL\bin\Debug\DAL.dll
+D:\PG-DAC\DAC\Project\E_Health_System\DAL\bin\Debug\DAL.pdb
+D:\PG-DAC\DAC\Project\E_Health_System\DAL\bin\Debug\BOL.dll
+D:\PG-DAC\DAC\Project\E_Health_System\DAL\bin\Debug\BOL.pdb
+D:\PG-DAC\DAC\Project\E_Health_System\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\PG-DAC\DAC\Project\E_Health_System\DAL\obj\Debug\DAL.dll
+D:\PG-DAC\DAC\Project\E_Health_System\DAL\obj\Debug\DAL.pdb
+C:\Users\dacstudent\Desktop\Sanyam - Kaushik\Project\E_Health_System\DAL\bin\Debug\DAL.dll
+C:\Users\dacstudent\Desktop\Sanyam - Kaushik\Project\E_Health_System\DAL\bin\Debug\DAL.pdb
+C:\Users\dacstudent\Desktop\Sanyam - Kaushik\Project\E_Health_System\DAL\bin\Debug\BOL.dll
+C:\Users\dacstudent\Desktop\Sanyam - Kaushik\Project\E_Health_System\DAL\bin\Debug\BOL.pdb
+C:\Users\dacstudent\Desktop\Sanyam - Kaushik\Project\E_Health_System\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\dacstudent\Desktop\Sanyam - Kaushik\Project\E_Health_System\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\dacstudent\Desktop\Sanyam - Kaushik\Project\E_Health_System\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\dacstudent\Desktop\Sanyam - Kaushik\Project\E_Health_System\DAL\obj\Debug\DAL.dll
+C:\Users\dacstudent\Desktop\Sanyam - Kaushik\Project\E_Health_System\DAL\obj\Debug\DAL.pdb
+C:\Users\Harshu\Desktop\project\E_Health_System\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\Harshu\Desktop\project\E_Health_System\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Harshu\Desktop\project\E_Health_System\DAL\obj\Debug\DAL.dll
+C:\Users\Harshu\Desktop\project\E_Health_System\DAL\obj\Debug\DAL.pdb
+C:\Users\Harshu\Desktop\project\E_Health_System\DAL\bin\Debug\DAL.dll
+C:\Users\Harshu\Desktop\project\E_Health_System\DAL\bin\Debug\DAL.pdb
+C:\Users\Harshu\Desktop\project\E_Health_System\DAL\bin\Debug\BOL.dll
+C:\Users\Harshu\Desktop\project\E_Health_System\DAL\bin\Debug\BOL.pdb
+C:\Users\Harshu\Desktop\project\E_Health_System\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Harshu\Desktop\project\Project_Code\E health management system\DAL\bin\Debug\DAL.dll
+C:\Users\Harshu\Desktop\project\Project_Code\E health management system\DAL\bin\Debug\DAL.pdb
+C:\Users\Harshu\Desktop\project\Project_Code\E health management system\DAL\bin\Debug\BOL.dll
+C:\Users\Harshu\Desktop\project\Project_Code\E health management system\DAL\bin\Debug\BOL.pdb
+C:\Users\Harshu\Desktop\project\Project_Code\E health management system\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\Harshu\Desktop\project\Project_Code\E health management system\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Harshu\Desktop\project\Project_Code\E health management system\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Harshu\Desktop\project\Project_Code\E health management system\DAL\obj\Debug\DAL.dll
+C:\Users\Harshu\Desktop\project\Project_Code\E health management system\DAL\obj\Debug\DAL.pdb
