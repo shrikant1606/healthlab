@@ -30,7 +30,7 @@ namespace DAL
                     if (con.State == ConnectionState.Closed)
                         con.Open();
 
-                    string query = "SELECT dinfo from DoctorInfo where username=@username";
+                    string query = "SELECT dinfoid from DoctorInfo where username=@username";
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.Add(new SqlParameter("@username", username));
                     SqlDataReader reader = cmd.ExecuteReader();
