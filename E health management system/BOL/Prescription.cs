@@ -19,6 +19,7 @@ namespace BOL
         private string details;
         private string pfirstname;
         private string plastname;
+        private string dusername;
         #endregion
 
         #region PrescriptionConstructors
@@ -76,6 +77,11 @@ namespace BOL
         {
             get { return plastname; }
             set { plastname = value; }
+        }
+        public string Dusername
+        {
+            get { return dusername; }
+            set { dusername = value; }
         }
         [Required]
         public string Details

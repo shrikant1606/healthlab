@@ -30,7 +30,7 @@
 
 <h2>PatientAppointment</h2>
 <div style="font-family:Arial;padding:100px 450px">
-    <table style="font-family:Arial">
+    <table cellpadding="10" style="font-family:Arial">
         <tr>
             <th>Appointment Id</th>
             <th>Patient Name</th>
@@ -47,12 +47,20 @@
                 <td>@appointment.Timeslot</td>
                 <td>@appointment.Status</td>
                 <td>
-                    @Html.ActionLink("Details", "Details", "Doctor", new { appointment.Appointmentid, appointment.Pfirstname,
+                    @{
+                        TempData["appointmentid"] = appointment.Appointmentid;
+                        TempData["firstname"] = appointment.Pfirstname;
+                        TempData["lastname"] = appointment.Plastname;
+                        TempData["timeslot"] = appointment.Timeslot;
+                        TempData["date"] = appointment.Date;
+                    }
+
+
+                    @Html.ActionLink("Create Prescription", "CreatePrescription", "Doctor", new { appointment.Appointmentid, appointment.Pfirstname,
                                                                                                appointment.Plastname, appointment.Timeslot,
                                                                                                appointment.Date})
-            </td>
-        </tr>
-    }
+                </td>
+            </tr>
+        }
     </table>
-    @*@Html.ActionLink("Home", "Index", "Doctor")*@
 </div>

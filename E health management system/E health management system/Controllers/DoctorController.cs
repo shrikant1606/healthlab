@@ -74,15 +74,19 @@ namespace E_health.Controllers
         {
             return View();
         }
-      
+
         public ActionResult Details(string firstName,string lastName, string timeslot, string date)
         {
-            TempData["firstname"] = firstName;
-            TempData["lastname"] = lastName;
-            TempData["timeslot"] = timeslot;
-            TempData["date"] = date;
-            Patient patient = PatientDAL.PatientDetail(firstName,lastName);
-            return View(patient);
+            if (ModelState.IsValid)
+            {
+                Patient patient = PatientDAL.PatientDetail(firstName, lastName);
+                return View(patient);
+            }
+            else
+            {
+                ModelState.AddModelError("", "Enter valid Patient Name..!!");
+                return View();
+            }
         }
 
         [HttpGet]
@@ -94,15 +98,47 @@ namespace E_health.Controllers
 
         [HttpPost]
         [ActionName("CreatePrescription")]
-        public ActionResult CreatePrescription_Post(string pfirstname, string plastname, string date, string timeslot)
+        public ActionResult CreatePrescription_Post()
         {    // Retrieve form data using form collection 
-            Doctor doctor = new Doctor();
             
-            TryUpdateModel(doctor);
+            Prescription prescription = new Prescription();
+            prescription.Appointmentid = int.Parse(TempData["appointmentid"].ToString());
+            prescription.Dusername = TempData["username"].ToString();
+            TempData.Keep();
+            prescription.Pfirstname = TempData["firstname"].ToString();
+            prescription.Plastname = TempData["lastname"].ToString();
+            prescription.Timeslot = TempData["timeslot"].ToString();
+            prescription.Date = TempData["date"].ToString();
+
+            TryUpdateModel(prescription);
             if (ModelState.IsValid)
             {
-                DoctorDAL.Insert(doctor);
-                return RedirectToAction("Login");
+                PrescriptionDAL.CreatePrescription(prescription);
+                return RedirectToAction("Index","Doctor");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        [HttpGet]
+        [ActionName("UpdateTime")]
+        public ActionResult UpdateTime_Get()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ActionName("UpdateTime")]
+        public ActionResult UpdateTime_Post(string checkin, string checkout)
+        {    // Retrieve form data using form collection 
+            string username = TempData["username"].ToString();
+            TempData.Keep();
+            if (ModelState.IsValid)
+            {
+                DoctorDAL.UpdateTime(username, checkin, checkout);
+                return RedirectToAction("Index", "Doctor");
             }
             else
             {

@@ -1,2 +1,2 @@
 # healthlab
-cdac project
+Patients often find it difficult to search for a specialised doctor and schedule an appointment.  Doctors need to keep a track of their schedule and patient's history. E Health Management System is a web based appointment scheduling system that provides a common platform for patients and doctors. It overcomes the issue of managing and booking appointments according to patients choice or demands. 
