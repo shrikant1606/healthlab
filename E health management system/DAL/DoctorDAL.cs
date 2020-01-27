@@ -355,5 +355,47 @@ namespace DAL
             }
             return status;
         }
+        public static bool UpdateTime(string username, string checkin, string checkout)
+        {
+            bool status = false;
+            int dtimeid = 0;
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    if (con.State == ConnectionState.Closed)
+                        con.Open();
+
+                    string query = "SELECT DoctorTimeSlot.dtimeid FROM DoctorTimeSlot INNER JOIN DoctorMaster on DoctorTimeSlot.dtimeid=DoctorMaster.dtimeid INNER JOIN DoctorInfo on DoctorMaster.dinfoid=DoctorInfo.dinfoid WHERE (DoctorInfo.username=@username)";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.Add(new SqlParameter("@username", username));
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader != null)
+                    {
+                        if (reader.HasRows)
+                        {
+                            if (reader.Read())
+                            {
+                                dtimeid = int.Parse(reader["dtimeid"].ToString());
+                            }
+                            reader.Close();
+                        }
+                    }
+                    
+                    query = "UPDATE DoctorTimeSlot SET checkin = @checkin, checkout = @checkout WHERE dtimeid=@dtimeid";
+                    SqlCommand cmd1 = new SqlCommand(query, con);
+                    cmd1.Parameters.Add(new SqlParameter("@checkin", checkin));
+                    cmd1.Parameters.Add(new SqlParameter("@checkout", checkout));
+                    cmd1.Parameters.Add(new SqlParameter("@dtimeid", dtimeid));
+                    cmd1.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return status;
+        }
     }
 }

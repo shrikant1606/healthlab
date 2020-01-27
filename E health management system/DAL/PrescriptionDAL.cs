@@ -22,11 +22,6 @@ namespace DAL
         public static bool CreatePrescription(Prescription prescription)
         {
             bool status = false;
-            int dinfoid = 0;
-            int pinfoid = 0;
-            int appointmentid = 0;
-            string date = null;
-            string timeslot = null;
             try
             {
                 using (SqlConnection con = new SqlConnection(conString))
@@ -44,7 +39,7 @@ namespace DAL
                             if (reader.Read())
                             {
                                 {
-                                    pinfoid = int.Parse(reader["pinfoid"].ToString());
+                                    prescription.Pinfoid = int.Parse(reader["pinfoid"].ToString());
                                 };
                             }
                             reader.Close();
@@ -62,7 +57,7 @@ namespace DAL
                             if (reader.Read())
                             {
                                 {
-                                    pinfoid = int.Parse(reader["dinfoid"].ToString());
+                                    prescription.Dinfoid = int.Parse(reader["dinfoid"].ToString());
                                 };
                             }
                             reader.Close();
