@@ -41,6 +41,13 @@ namespace E_Health.Controllers
             }
         }
 
+        public ActionResult PatientPrescription()
+        {
+            List<Prescription> prescriptions = new List<Prescription>();
+            prescriptions = PharmacyDAL.GetAll();
+            return View(prescriptions);
+        }
+
         [HttpGet]
         [ActionName("Create")]
         public ActionResult Create_Get()

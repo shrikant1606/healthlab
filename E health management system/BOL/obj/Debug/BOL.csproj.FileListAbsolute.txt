@@ -34,4 +34,13 @@ D:\PG-DAC\DAC\Project\Project_Code\E health management system\BOL\obj\Debug\BOL.
 D:\PG-DAC\DAC\Project\Project_Code\E health management system\BOL\obj\Debug\BOL.csproj.CoreCompileInputs.cache
 D:\PG-DAC\DAC\Project\Project_Code\E health management system\BOL\obj\Debug\BOL.dll
 D:\PG-DAC\DAC\Project\Project_Code\E health management system\BOL\obj\Debug\BOL.pdb
+<<<<<<< HEAD
 C:\Users\admin\Desktop\healthlab\healthlab\E health management system\BOL\obj\Debug\BOL.csprojAssemblyReference.cache
+=======
+C:\Users\OMKAR\Downloads\Desktop\Project code\E health management system\BOL\bin\Debug\BOL.dll
+C:\Users\OMKAR\Downloads\Desktop\Project code\E health management system\BOL\bin\Debug\BOL.pdb
+C:\Users\OMKAR\Downloads\Desktop\Project code\E health management system\BOL\obj\Debug\BOL.csprojAssemblyReference.cache
+C:\Users\OMKAR\Downloads\Desktop\Project code\E health management system\BOL\obj\Debug\BOL.csproj.CoreCompileInputs.cache
+C:\Users\OMKAR\Downloads\Desktop\Project code\E health management system\BOL\obj\Debug\BOL.dll
+C:\Users\OMKAR\Downloads\Desktop\Project code\E health management system\BOL\obj\Debug\BOL.pdb
+>>>>>>> 765b0f825ee17128ddad1302076f4f1369d9eac0
