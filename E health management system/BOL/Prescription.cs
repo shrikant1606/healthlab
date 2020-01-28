@@ -20,13 +20,15 @@ namespace BOL
         private string pfirstname;
         private string plastname;
         private string dusername;
+        private string dfirstname;
+        private string dlastname;
         #endregion
 
         #region PrescriptionConstructors
         public Prescription()
         {
         }
-        public Prescription(int dinfoid, int pinfoid, int appointmentid, string date, string timeslot, string pfirstname, string plastname)
+        public Prescription(int dinfoid, int pinfoid, int appointmentid, string date, string timeslot, string pfirstname, string plastname,string dfirstname,string dlastname)
         {
             this.dinfoid = dinfoid;
             this.pinfoid = pinfoid;
@@ -35,6 +37,8 @@ namespace BOL
             this.timeslot = timeslot;
             this.pfirstname = pfirstname;
             this.plastname = plastname;
+            this.dfirstname = dfirstname;
+            this.dlastname = dlastname;
         }
         #endregion
 
@@ -82,6 +86,16 @@ namespace BOL
         {
             get { return dusername; }
             set { dusername = value; }
+        }
+        public string Dfirstname
+        {
+            get { return dfirstname; }
+            set { dfirstname = value; }
+        }
+        public string Dlastname
+        {
+            get { return dlastname; }
+            set { dlastname = value; }
         }
         [Required]
         public string Details
