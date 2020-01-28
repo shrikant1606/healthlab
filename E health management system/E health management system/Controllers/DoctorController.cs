@@ -32,11 +32,19 @@ namespace E_health.Controllers
             TryUpdateModel(doctor);
             if (ModelState.IsValid)
             {
-                DoctorDAL.Insert(doctor);
-                return RedirectToAction("Login");
+                if (DoctorDAL.Insert(doctor))
+                {
+                    return RedirectToAction("Login");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Username already exists");
+                    return View();
+                }
             }
             else
             {
+                ModelState.AddModelError("", "Username already exists");
                 return View();
             }
         }
