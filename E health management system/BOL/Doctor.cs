@@ -105,7 +105,7 @@ namespace BOL
         }
         [DataType(DataType.Password)]
         [Required]
-        [RegularExpression("([a-z]|[A-Z]|[0-9]|[\\W]){4}[a-zA-Z0-9\\W]{3,11}", ErrorMessage = "weak password")]
+        [RegularExpression("([a-z]|[A-Z]|[0-9]|[\\W]){4}[a-zA-Z0-9\\W]{3,11}", ErrorMessage = "weak password....It must contain alpha-numeric")]
         public string Password
         {
             get { return password; }
@@ -152,6 +152,8 @@ namespace BOL
             get { return state; }
             set { state = value; }
         }
+        [Required]
+        [RegularExpression("([1-9][0-9]*)", ErrorMessage = "Enter Valid detail")]
         public int Pincode
         {
             get { return pincode; }
@@ -188,17 +190,20 @@ namespace BOL
             get { return certification; }
             set { certification = value; }
         }
+        [RegularExpression("([1-9][0-9]*)", ErrorMessage = "Enter Valid detail")]
         public int Fees
         {
             get { return fees; }
             set { fees = value; }
         }
+        [RegularExpression("([1-9][0-9]*)", ErrorMessage = "Enter Valid detail")]
         public int Rating
         {
             get { return rating; }
             set { rating = value; }
         }
         [Required]
+        [RegularExpression("([1-9][0-9]*)", ErrorMessage = "Enter Valid detail")]
         public int Experience
         {
             get { return experience; }
