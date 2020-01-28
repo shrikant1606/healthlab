@@ -167,5 +167,54 @@ namespace DAL
             }
             return status;
         }
+
+        public static List<Prescription> GetAll()
+        {
+            List<Prescription> prescriptions = new List<Prescription>();
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    if (con.State == ConnectionState.Closed)
+                        con.Open();
+                    string query = "SELECT DoctorInfo.firstname,DoctorInfo.lastname,PrescriptionMaster.appointmentid,PrescriptionMaster.date,PrescriptionMaster.timeslot,PrescriptionMaster.details,PatientInfo.firstname,PatientInfo.lastname FROM ((DoctorInfo INNER JOIN PrescriptionMaster ON DoctorInfo.dinfoid=PrescriptionMaster.dinfoid) INNER JOIN PatientInfo ON PatientInfo.pinfoid=PrescriptionMaster.pinfoid)";
+                    SqlCommand cmd = new SqlCommand(query, con);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader != null)
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                Prescription prescription = new Prescription()
+                                {
+                                    Pfirstname=reader["firstname"].ToString(),
+                                    Plastname=reader["lastname"].ToString(),
+                                    Dfirstname=reader["firstname"].ToString(),
+                                    Dlastname = reader["lastname"].ToString(),
+                                    Appointmentid=int.Parse(reader["appointmentid"].ToString()),
+                                    Dinfoid=int.Parse(reader["dinfoid"].ToString()),
+                                    Pinfoid=int.Parse(reader["pinfoid"].ToString()),
+                                    Date=reader["date"].ToString(),
+                                    Timeslot=reader["timeslot"].ToString(),
+                                    Details=reader["details"].ToString()
+                                };
+                                prescriptions.Add(prescription);
+                            }
+                            reader.Close();
+                        }
+                    }
+                    if (con.State == ConnectionState.Open)
+                        con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return prescriptions;
+        }
+
     }
 }

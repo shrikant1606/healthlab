@@ -52,3 +52,12 @@ D:\PG-DAC\DAC\Project\Project_Code\E health management system\DAL\obj\Debug\DAL.
 D:\PG-DAC\DAC\Project\Project_Code\E health management system\DAL\obj\Debug\DAL.csproj.CopyComplete
 D:\PG-DAC\DAC\Project\Project_Code\E health management system\DAL\obj\Debug\DAL.dll
 D:\PG-DAC\DAC\Project\Project_Code\E health management system\DAL\obj\Debug\DAL.pdb
+C:\Users\OMKAR\Downloads\Desktop\Project code\E health management system\DAL\bin\Debug\DAL.dll
+C:\Users\OMKAR\Downloads\Desktop\Project code\E health management system\DAL\bin\Debug\DAL.pdb
+C:\Users\OMKAR\Downloads\Desktop\Project code\E health management system\DAL\bin\Debug\BOL.dll
+C:\Users\OMKAR\Downloads\Desktop\Project code\E health management system\DAL\bin\Debug\BOL.pdb
+C:\Users\OMKAR\Downloads\Desktop\Project code\E health management system\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\OMKAR\Downloads\Desktop\Project code\E health management system\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\OMKAR\Downloads\Desktop\Project code\E health management system\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\OMKAR\Downloads\Desktop\Project code\E health management system\DAL\obj\Debug\DAL.dll
+C:\Users\OMKAR\Downloads\Desktop\Project code\E health management system\DAL\obj\Debug\DAL.pdb

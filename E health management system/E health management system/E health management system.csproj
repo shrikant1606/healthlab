@@ -288,6 +288,7 @@
     <Content Include="Views\Doctor\PatientAppointment.cshtml" />
     <Content Include="Views\Doctor\Search.cshtml" />
     <Content Include="Views\Doctor\UpdateTime.cshtml" />
+    <Content Include="Views\Pharmacy\PatientPrescription.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
