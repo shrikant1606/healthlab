@@ -3,3 +3,4 @@ C:\Users\admin\Desktop\healthlab\healthlab\E health management system\BOL\bin\De
 C:\Users\admin\Desktop\healthlab\healthlab\E health management system\BOL\obj\Debug\BOL.csproj.CoreCompileInputs.cache
 C:\Users\admin\Desktop\healthlab\healthlab\E health management system\BOL\obj\Debug\BOL.dll
 C:\Users\admin\Desktop\healthlab\healthlab\E health management system\BOL\obj\Debug\BOL.pdb
+C:\Users\admin\Desktop\healthlab\healthlab\E health management system\BOL\obj\Debug\BOL.csprojAssemblyReference.cache

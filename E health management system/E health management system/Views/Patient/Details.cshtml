@@ -2,6 +2,37 @@
 @{
     ViewBag.Title = "Details";
 }
+<!-- Start header -->
+<header class="top-navbar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="@Url.Action("Index","Home")">
+                <img src="" alt="" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbars-rs-food">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a class="nav-link" href="@Url.Action("Index","Home")">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Home")">Doctor List</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Search</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                            <a class="dropdown-item" href="@Url.Action("Contact","Home")">Search Doctor</a>
+                            <a class="dropdown-item" href="@Url.Action("Contact","Home")">Search Pharmacy</a>
+                        </div>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Home")">Book Appointment</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Home")">History</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Home")">Reports</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Home")">Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- End header -->
+
 
 <h2>Detail</h2>
 <table style="font-family:Arial">
@@ -41,7 +72,7 @@
         <td><b>Fees :</b></td>
         <td>@Model.Fees</td>
     </tr>
-    
+
     <tr>
         <td>
             @Html.ActionLink("Book Appointment", "BookAppointment", "Patient", new { name = Model.Firstname })
