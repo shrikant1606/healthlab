@@ -153,7 +153,6 @@ namespace BOL
             set { state = value; }
         }
         [Required]
-        [RegularExpression("([1-9][0-9]*)", ErrorMessage = "Enter Valid detail")]
         public int Pincode
         {
             get { return pincode; }
@@ -190,20 +189,17 @@ namespace BOL
             get { return certification; }
             set { certification = value; }
         }
-        [RegularExpression("([1-9][0-9]*)", ErrorMessage = "Enter Valid detail")]
         public int Fees
         {
             get { return fees; }
             set { fees = value; }
         }
-        [RegularExpression("([1-9][0-9]*)", ErrorMessage = "Enter Valid detail")]
         public int Rating
         {
             get { return rating; }
             set { rating = value; }
         }
         [Required]
-        [RegularExpression("([1-9][0-9]*)", ErrorMessage = "Enter Valid detail")]
         public int Experience
         {
             get { return experience; }

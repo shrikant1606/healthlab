@@ -74,6 +74,12 @@ namespace DAL
                     cmd.Parameters.Add(new SqlParameter("@timeslot", prescription.Timeslot));
                     cmd.Parameters.Add(new SqlParameter("@details", prescription.Details));
                     cmd.ExecuteNonQuery();
+
+                    query = "UPDATE AppointmentMaster SET status = 1 where appointmentid = @appointmentid";
+                    cmd = new SqlCommand(query, con);
+                    cmd.Parameters.Add(new SqlParameter("@appointmentid", prescription.Appointmentid));
+                    cmd.ExecuteNonQuery();
+
                     if (con.State == ConnectionState.Open)
                         con.Close();
                     status = true;

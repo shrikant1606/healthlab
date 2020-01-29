@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<BOL.Patient>
 @{
     ViewBag.Title = "Details";
 }
@@ -28,31 +28,37 @@
     </nav>
 </header>
 <!-- End header -->
-
-<h2>Patient Details</h2>
 <div style="padding:200px 550px">
-    <table cellpadding="10" style="font-family:Arial">
-        <tr>
-            <td><b>Name :</b></td>
-            <td>@Model.Firstname @Model.Lastname</td>
-        </tr>
-        <tr>
-            <td><b>Address :</b></td>
-            <td>@Model.Address, @Model.City, @Model.State</td>
-        </tr>
-        <tr>
-            <td><b>History :</b></td>
-            <td>@Model.History</td>
-        </tr>
-        <tr>
-            <td><b>Mobile No.:</b></td>
-            <td>@Model.Mobile</td>
-        </tr>
-        <tr>
-            <td><b>Email:</b></td>
-            <td>@Model.Email</td>
-        </tr>
+    <h2>Patient Details</h2>
+
+    <table cellpadding="10" border="1" style="font-family:Arial">
+
+        @foreach (BOL.Patient patient in @Model)
+        {
+            <tr>
+                <td><b>Name :</b></td>
+                <td>@patient.Firstname @patient.Lastname</td>
+            </tr>
+            <tr>
+                <td><b>Address :</b></td>
+                <td>@patient.Address, @patient.City, @patient.State</td>
+            </tr>
+            <tr>
+                <td><b>History :</b></td>
+                <td>@patient.History</td>
+            </tr>
+            <tr>
+                <td><b>Mobile No.:</b></td>
+                <td>@patient.Mobile</td>
+            </tr>
+            <tr>
+                <td><b>Email:</b></td>
+                <td>@patient.Email</td>
+
+            </tr>
+        }
 
     </table>
-    <p>@Html.ActionLink("Back to Search", "Search", "Doctor")</p>
+    <br />
+    <input type='button' onclick='history.back();' value='Go Back' />
 </div>

@@ -25,7 +25,7 @@ namespace E_health.Controllers
 
         [HttpPost]
         [ActionName("Create")]
-        public ActionResult Create_Post()
+        public ActionResult Create_Post(FormCollection collection)
         {    // Retrieve form data using form collection 
             Doctor doctor = new Doctor();
             
@@ -44,7 +44,6 @@ namespace E_health.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "Username already exists");
                 return View();
             }
         }
@@ -68,27 +67,41 @@ namespace E_health.Controllers
                 return View();
             }
         }
-
-        public ActionResult PatientAppointment()
-        {
-            string username = TempData["username"].ToString();
-            TempData.Keep();
-            List<Appointment> patientsList = new List<Appointment>();
-            patientsList = AppointmentDAL.GetAll(username);
-            return View(patientsList);
-        }
-
-        public ActionResult Search()
+        
+        public ActionResult AppointmentSummary()
         {
             return View();
         }
 
+        public ActionResult PatientAppointment(string date)
+        {
+            string username = TempData["username"].ToString();
+            TempData.Keep();
+            if (ModelState.IsValid)
+            {
+                List<Appointment> patientsList = new List<Appointment>();
+                patientsList = AppointmentDAL.GetAll(username,date);
+                return View(patientsList);
+            }
+            else
+            {
+                ModelState.AddModelError("", "Enter valid date..!!");
+                return View();
+            } 
+        }
+        
+        public ActionResult Search()
+        {
+            return View();
+        }
+        
         public ActionResult Details(string firstName,string lastName, string timeslot, string date)
         {
             if (ModelState.IsValid)
             {
-                Patient patient = PatientDAL.PatientDetail(firstName, lastName);
-                return View(patient);
+                List<Patient> patientList = new List<Patient>();
+                patientList = PatientDAL.PatientDetail(firstName, lastName);
+                return View(patientList);
             }
             else
             {
@@ -96,14 +109,14 @@ namespace E_health.Controllers
                 return View();
             }
         }
-
+        
         [HttpGet]
         [ActionName("CreatePrescription")]
         public ActionResult CreatePrescription_Get()
         {
             return View();
         }
-
+        
         [HttpPost]
         [ActionName("CreatePrescription")]
         public ActionResult CreatePrescription_Post()
@@ -129,14 +142,14 @@ namespace E_health.Controllers
                 return View();
             }
         }
-
+        
         [HttpGet]
         [ActionName("UpdateTime")]
         public ActionResult UpdateTime_Get()
         {
             return View();
         }
-
+        
         [HttpPost]
         [ActionName("UpdateTime")]
         public ActionResult UpdateTime_Post(string checkin, string checkout)

@@ -12,7 +12,7 @@
     {
         @Html.ValidationSummary(true)
     <fieldset>
-
+        <legend>Doctor</legend>
         <div class="editor-label">
             @Html.LabelFor(model => model.Username)
         </div>
@@ -48,7 +48,7 @@
             @Html.LabelFor(model => model.Dob)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.Dob, new { type = "date" })
+            @Html.TextBoxFor(model => model.Dob, new { @type="date" })
             @Html.ValidationMessageFor(model => model.Dob, "", new { @class = "text-danger" })
         </div>
         <div class="editor-label">
@@ -59,6 +59,8 @@
             @Html.RadioButtonFor(model => model.Gender, "Male")
             Female
             @Html.RadioButtonFor(model => model.Gender, "Female")
+            Other
+            @Html.RadioButtonFor(model => model.Gender, "Other")
             @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
         </div>
         <div class="editor-label">
@@ -72,21 +74,29 @@
             @Html.LabelFor(model => model.City)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.City)
+            @Html.DropDownListFor(model => model.City, new List<SelectListItem>
+             {
+                new SelectListItem() {Text = "Pune", Value="Pune"},
+                new SelectListItem() {Text = "Mumbai", Value="Mumbai"},
+                new SelectListItem() {Text = "Nagpur", Value="Nagpur"}
+            })
             @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
         </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.State)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.State)
+            @Html.DropDownListFor(model => model.State, new List<SelectListItem>
+             {
+                new SelectListItem() {Text = "Maharashtra", Value="Maharashtra"}
+            })
             @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
         </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.Pincode)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.Pincode, new { @type = "number", @class = "span4", @min = "0" })
+            @Html.EditorFor(model => model.Pincode)
             @Html.ValidationMessageFor(model => model.Pincode, "", new { @class = "text-danger" })
         </div>
         <div class="editor-label">
@@ -114,7 +124,20 @@
             @Html.LabelFor(model => model.Specialization)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Specialization)
+            @Html.DropDownListFor(model => model.Specialization, new List<SelectListItem>
+             {
+                new SelectListItem() {Text = "Allergist", Value="Allergist"},
+                new SelectListItem() {Text = "Cardiologist", Value="Cardiologist"},
+                new SelectListItem() {Text = "Dermatologist", Value="Dermatologist"},
+                new SelectListItem() {Text = "Physician", Value="Physician"},
+                new SelectListItem() {Text = "Neurologist", Value="Neurologist"},
+                new SelectListItem() {Text = "Gastroenterologist", Value="Gastroenterologist"},
+                new SelectListItem() {Text = "Geriatic", Value="Geriatic"},
+                new SelectListItem() {Text = "Gynecologist", Value="Gynecologist"},
+                new SelectListItem() {Text = "Pediatrics", Value="Pediatrics"},
+                new SelectListItem() {Text = "Surgeon", Value="Surgeon"},
+                new SelectListItem() {Text = "Urologist", Value="Urologist"}
+            })
             @Html.ValidationMessageFor(model => model.Specialization, "", new { @class = "text-danger" })
         </div>
         <div class="editor-label">
@@ -128,7 +151,7 @@
             @Html.LabelFor(model => model.Fees)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.Fees, new { @type = "number", @class = "span4", @min = "0" })
+            @Html.TextBoxFor(model => model.Fees, new { @type="number", @class="span4", @min="0"  })
             @Html.ValidationMessageFor(model => model.Fees, "", new { @class = "text-danger" })
         </div>
         <div class="editor-label">
@@ -139,20 +162,20 @@
             @Html.ValidationMessageFor(model => model.Experience, "", new { @class = "text-danger" })
         </div>
         <div class="editor-label">
-            Available From:
+            Available From (Timmings)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Checkin)
+            @Html.TextBoxFor(model => model.Checkin, new { @type = "time" })
             @Html.ValidationMessageFor(model => model.Checkin, "", new { @class = "text-danger" })
         </div>
         <div class="editor-label">
-            Available To:
+            Available To (Timmings)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Checkout)
+            @Html.TextBoxFor(model => model.Checkout, new { @type = "time" })
             @Html.ValidationMessageFor(model => model.Checkout, "", new { @class = "text-danger" })
         </div>
-        <br/>
+        <br />
         <p>
             <input type="submit" value="Register" />
             <input type="reset" value="Reset" />
