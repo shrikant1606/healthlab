@@ -2,14 +2,15 @@
 @{
     ViewBag.Title = "Login";
 }
-
-<h2>Login</h2>
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary();
 <div style="padding:200px 500px">
-    <p><label>UserName</label> <input name="username" /></p>
-    <p><label>Password</label> <input name="password" type="password" /></p>
-    <input type="submit" value="Log In">
+    <h2>Laboratory Login</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary();
+
+        <p><label>UserName</label> <input name="username" /></p>
+        <p><label>Password</label> <input name="password" type="password" /></p>
+        <input type="submit" value="Log In">
+
+    }
 </div>
-}

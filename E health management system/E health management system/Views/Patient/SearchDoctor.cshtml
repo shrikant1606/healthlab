@@ -1,0 +1,66 @@
+﻿@model BOL.Doctor
+@{
+    ViewBag.Title = "SearchDoctor";
+}
+<!-- Start header -->
+<header class="top-navbar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="@Url.Action("Index","Home")">
+                <img src="" alt="" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbars-rs-food">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a class="nav-link" href="@Url.Action("Index","Patient")">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("SearchDoctor","Patient")">List of Doctors</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Search</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                            <a class="dropdown-item" href="@Url.Action("SearchDoctor","Patient")">Search Doctor</a>
+                            <a class="dropdown-item" href="@Url.Action("Index","Patient")">Search Pharmacy</a>
+                        </div>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("SearchDoctor","Patient")">Book Appointment</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("History","Patient")">History</a></li>
+                    @*<li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Patient")">Reports</a></li>*@
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Index","Home")">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- End header -->
+<div style="padding:100px 520px">
+    <h2>Search Doctor</h2>
+
+    @using (Html.BeginForm("ListDoctors", "Patient", FormMethod.Post))
+    {
+        <fieldset>
+            @Html.ValidationSummary(true)
+            <div class="editor-label">
+                Specialization
+            </div>
+            <div class="editor-field">
+                <select name="specialization">
+                    <option value="Allergist">Allergist</option>
+                    <option value="Cardiologist">Cardiologist</option>
+                    <option value="Dermatologist">Dermatologist</option>
+                    <option value="Physician">Physician</option>
+                    <option value="Neurologist">Neurologist</option>
+                    <option value="Gastroenterologist">Gastroenterologist</option>
+                    <option value="Geriatic">Geriatic</option>
+                    <option value="Gynecologist">Gynecologist</option>
+                    <option value="Pediatrics">Pediatrics</option>
+                    <option value="Surgeon">Surgeon</option>
+                    <option value="Urologist">Urologist</option>
+                </select>
+            </div>
+            <p>
+                <input type="submit" value="Search" />
+            </p>
+        </fieldset>
+
+    }
+</div>

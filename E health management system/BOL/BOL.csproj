@@ -42,8 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.cs" />
     <Compile Include="Appointment.cs" />
     <Compile Include="Doctor.cs" />
+    <Compile Include="Feedback.cs" />
     <Compile Include="Laboratory.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="Pharmacy.cs" />

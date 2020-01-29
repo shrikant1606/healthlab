@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Index";
 }
+
 <div style="padding:100px 500px">
     <h2>Laboratory Registration Form</h2>
 
@@ -11,109 +12,109 @@
     @using (Html.BeginForm())
     {
         @Html.ValidationSummary(true)
-    <fieldset>
+        <fieldset>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Username)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Username)
-            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Username)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Username)
+                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Password)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Password)
-            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Password)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Laboratoryname)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Laboratoryname)
-            @Html.ValidationMessageFor(model => model.Laboratoryname, "", new { @class = "text-danger" })
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Laboratoryname)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Laboratoryname)
+                @Html.ValidationMessageFor(model => model.Laboratoryname, "", new { @class = "text-danger" })
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Inchargename)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Inchargename)
-            @Html.ValidationMessageFor(model => model.Inchargename, "", new { @class = "text-danger" })
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Inchargename)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Inchargename)
+                @Html.ValidationMessageFor(model => model.Inchargename, "", new { @class = "text-danger" })
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Address)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Address)
-            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Address)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Address)
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.City)
-        </div>
-        <div class="editor-field">
-            @Html.DropDownListFor(model => model.City, new List<SelectListItem>
-             {
-                new SelectListItem() {Text = "Pune", Value="Pune"},
-                new SelectListItem() {Text = "Mumbai", Value="Mumbai"},
-                new SelectListItem() {Text = "Nagpur", Value="Nagpur"}
-            })
-            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.City)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.City, new List<SelectListItem>
+                 {
+                    new SelectListItem() {Text = "Pune", Value="Pune"},
+                    new SelectListItem() {Text = "Mumbai", Value="Mumbai"},
+                    new SelectListItem() {Text = "Nagpur", Value="Nagpur"}
+                })
+                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.State)
-        </div>
-        <div class="editor-field">
-            @Html.DropDownListFor(model => model.State, new List<SelectListItem>
-             {
-                new SelectListItem() {Text = "Maharashtra", Value="Maharashtra"}
-            })
-            @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.State)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.State, new List<SelectListItem>
+                 {
+                    new SelectListItem() {Text = "Maharashtra", Value="Maharashtra"}
+                })
+                @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Pincode)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Pincode)
-            @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Pincode)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Pincode)
+                @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Mobile)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Mobile)
-            @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Mobile)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Mobile)
+                @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Email)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Email)
-            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Email)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Licence)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Licence)
-            @Html.ValidationMessageFor(model => model.Licence, "", new { @class = "text-danger" })
-        </div>
-        <br />
-        <p>
-            <input type="submit" value="Register" />
-            <input type="reset" value="Reset" />
-        </p>
-    </fieldset>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Licence)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Licence)
+                @Html.ValidationMessageFor(model => model.Licence, "", new { @class = "text-danger" })
+            </div>
+            <br />
+            <p>
+                <input type="submit" value="Register" />
+                <input type="reset" value="Reset" />
+            </p>
+        </fieldset>
     }
 </div>
 

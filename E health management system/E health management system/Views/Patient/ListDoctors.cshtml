@@ -2,13 +2,6 @@
 @{
     ViewBag.Title = "ListDoctors";
 }
-<<<<<<< HEAD
-<div style="padding:200px 550px">
-    <h2 style="text-align:center">Doctors Available</h2>
-    <br />
-    <br />
-    <div style="font-family:Arial">
-=======
 <!-- Start header -->
 <header class="top-navbar">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -21,18 +14,18 @@
             </button>
             <div class="collapse navbar-collapse" id="navbars-rs-food">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a class="nav-link" href="@Url.Action("Index","Home")">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Home")">Doctor List</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="@Url.Action("Index","Patient")">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("SearchDoctor","Patient")">List of Doctors</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Search</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                            <a class="dropdown-item" href="@Url.Action("Contact","Home")">Search Doctor</a>
-                            <a class="dropdown-item" href="@Url.Action("Contact","Home")">Search Pharmacy</a>
+                            <a class="dropdown-item" href="@Url.Action("SearchDoctor","Patient")">Search Doctor</a>
+                            <a class="dropdown-item" href="@Url.Action("Index","Patient")">Search Pharmacy</a>
                         </div>
-                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Home")">Book Appointment</a></li>
-                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Home")">History</a></li>
-                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Home")">Reports</a></li>
-                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Home")">Feedback</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("SearchDoctor","Patient")">Book Appointment</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("History","Patient")">History</a></li>
+                    @*<li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Patient")">Reports</a></li>*@
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Index","Home")">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -40,19 +33,23 @@
 </header>
 <!-- End header -->
 
->>>>>>> a52fa7044c6003433b7908dc14b91996d863d7aa
+<div style="padding:200px 550px">
+    <h2 style="text-align:center">Doctors Available</h2>
+    <br />
+    <br />
+    <div style="font-family:Arial">
 
         <ul>
             @foreach (BOL.Doctor doctor in @Model)
             {
-            <li>
-                Dr. @doctor.Firstname @doctor.Lastname
-                @{
-                    TempData["dfirstname"] = doctor.Firstname;
-                    TempData["dlastname"] = doctor.Lastname;
-                }
-                @Html.ActionLink("Details", "Details", "Patient")
-            </li>
+                <li>
+                    Dr. @doctor.Firstname @doctor.Lastname
+                    @{
+                        TempData["dfirstname"] = doctor.Firstname;
+                        TempData["dlastname"] = doctor.Lastname;
+                    }
+                    @Html.ActionLink("Details", "Details", "Patient")
+                </li>
             }
         </ul>
     </div>

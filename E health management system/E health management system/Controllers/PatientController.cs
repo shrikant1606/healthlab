@@ -54,9 +54,15 @@ namespace E_Health.Controllers
             TryUpdateModel(patient);
             if (ModelState.IsValid)
             {
-                PatientDAL.Insert(patient);
-                return RedirectToAction("Create");
-
+                if (PatientDAL.Insert(patient))
+                {
+                    return RedirectToAction("Login");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Username already exists");
+                    return View();
+                }
             }
             else
             {
@@ -131,10 +137,44 @@ namespace E_Health.Controllers
 
         public ActionResult History()
         {
-            int patientid = 0;
+            string username = TempData["username"].ToString();
+            TempData.Keep();
             List<Appointment> history = new List<Appointment>();
-            history = AppointmentDAL.History(patientid);
+            history = AppointmentDAL.History(username);
             return View(history);
+        }
+
+        [HttpGet]
+        [ActionName("Feedback")]
+        public ActionResult Feedback_Get()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ActionName("Feedback")]
+        public ActionResult Feedback_Post(FormCollection collection)
+        {
+            Feedback feedback = new Feedback();
+            feedback.Pusername = TempData["username"].ToString();
+            TempData.Keep();
+            feedback.Dfirstname = TempData["fdfirstname"].ToString();
+            TempData.Keep();
+            feedback.Dlastname = TempData["fdlastname"].ToString();
+            TempData.Keep();
+
+            TryUpdateModel(feedback);
+            if (ModelState.IsValid)
+            {
+                feedback.Dinfoid = 0;
+                feedback.Pinfoid = 0;
+                FeedbackDAL.Feedback(feedback);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }

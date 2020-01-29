@@ -42,8 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminDAL.cs" />
     <Compile Include="AppointmentDAL.cs" />
     <Compile Include="DoctorDAL.cs" />
+    <Compile Include="FeedbackDAL.cs" />
     <Compile Include="LaboratoryDAL.cs" />
     <Compile Include="PatientDAL.cs" />
     <Compile Include="PharmacyDAL.cs" />

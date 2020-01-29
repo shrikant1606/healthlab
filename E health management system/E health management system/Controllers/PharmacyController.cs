@@ -32,6 +32,7 @@ namespace E_Health.Controllers
         {
             if (PharmacyDAL.ValidateUser(username,password))
             {
+                TempData["username"] = username;
                 return RedirectToAction("Index");
             }
             else
@@ -64,12 +65,40 @@ namespace E_Health.Controllers
             TryUpdateModel(pharmacy);
             if (ModelState.IsValid)
             {
-                PharmacyDAL.Insert(pharmacy);
-                return RedirectToAction("Create");
-
+                if (PharmacyDAL.Insert(pharmacy))
+                {
+                    return RedirectToAction("Login");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Username already exists");
+                    return View();
+                }
             }
             else
             {
+                return View();
+            }
+        }
+
+        public ActionResult Search()
+        {
+            return View();
+        }
+
+        public ActionResult Details(string firstName, string lastName)
+        {
+            TempData["pfirstname"] = firstName;
+            TempData["plastname"] = lastName;
+            if (ModelState.IsValid)
+            {
+                List<Prescription> prescriptions = new List<Prescription>();
+                prescriptions = PrescriptionDAL.GetPrescriptions(firstName, lastName);
+                return View(prescriptions);
+            }
+            else
+            {
+                ModelState.AddModelError("", "Enter valid Patient Name..!!");
                 return View();
             }
         }

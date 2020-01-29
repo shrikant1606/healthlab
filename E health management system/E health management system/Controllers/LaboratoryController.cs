@@ -15,13 +15,7 @@ namespace E_Health.Controllers
         {
             return View();
         }
-
-        // GET: LaboratoryRegistration/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
+        
         public ActionResult Login()
         {
             return View();
@@ -32,6 +26,7 @@ namespace E_Health.Controllers
         {
             if (LaboratoryDAL.ValidateUser(username,password))
             {
+                TempData["username"] = username;
                 return RedirectToAction("Index");
             }
             else
@@ -57,16 +52,42 @@ namespace E_Health.Controllers
             TryUpdateModel(laboratory);
             if (ModelState.IsValid)
             {
-                LaboratoryDAL.Insert(laboratory);
-                return RedirectToAction("Create");
-
+                if (LaboratoryDAL.Insert(laboratory))
+                {
+                    return RedirectToAction("Login");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Username already exists");
+                    return View();
+                }
             }
             else
             {
                 return View();
             }
+        }
 
+        public ActionResult Search()
+        {
+            return View();
+        }
 
+        public ActionResult Details(string firstName, string lastName)
+        {
+            TempData["pfirstname"] = firstName;
+            TempData["plastname"] = lastName;
+            if (ModelState.IsValid)
+            {
+                List<Prescription> prescriptions = new List<Prescription>();
+                prescriptions = PrescriptionDAL.GetPrescriptions(firstName, lastName);
+                return View(prescriptions);
+            }
+            else
+            {
+                ModelState.AddModelError("", "Enter valid Patient Name..!!");
+                return View();
+            }
         }
     }
 }

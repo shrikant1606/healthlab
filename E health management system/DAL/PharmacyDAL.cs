@@ -31,109 +31,125 @@ namespace DAL
                 {
                     if (con.State == ConnectionState.Closed)
                         con.Open();
-                    string query = "INSERT INTO PharmacyInfo (username, password, companyname,competentperson) " +
-                        "VALUES (@username, @password, @companyname, @competentperson)";
-                    SqlCommand cmd1 = new SqlCommand(query, con);
-                    cmd1.Parameters.Add(new SqlParameter("@username", pharmacy.Username));
-                    cmd1.Parameters.Add(new SqlParameter("@password", pharmacy.Password));
-                    cmd1.Parameters.Add(new SqlParameter("@companyname", pharmacy.Companyname));
-                    cmd1.Parameters.Add(new SqlParameter("@competentperson", pharmacy.Competentperson));
-                    cmd1.ExecuteNonQuery();
 
-                    SqlCommand cmd2 = new SqlCommand(query, con);
-                    query = "INSERT INTO PharmacyAddress (address, city, state, pincode) " +
-                       "VALUES (@address, @city, @state, @pincode)";
-                    cmd2 = new SqlCommand(query, con);
-                    cmd2.Parameters.Add(new SqlParameter("@address", pharmacy.Address));
-                    cmd2.Parameters.Add(new SqlParameter("@city", pharmacy.City));
-                    cmd2.Parameters.Add(new SqlParameter("@state", pharmacy.State));
-                    cmd2.Parameters.Add(new SqlParameter("@pincode", pharmacy.Pincode));
-                    cmd2.ExecuteNonQuery();
-
-                    SqlCommand cmd3 = new SqlCommand(query, con);
-                    query = "INSERT INTO PharmacyContact (mobile, email) " +
-                       "VALUES (@mobile, @email)";
-                    cmd3 = new SqlCommand(query, con);
-                    cmd3.Parameters.Add(new SqlParameter("@mobile", pharmacy.Mobile));
-                    cmd3.Parameters.Add(new SqlParameter("@email", pharmacy.Email));
-                    cmd3.ExecuteNonQuery();
-
-                    SqlCommand cmd4 = new SqlCommand(query, con);
-                    query = "INSERT INTO PharmacyCertification (licence) " +
-                       "VALUES (@licence)";
-                    cmd4 = new SqlCommand(query, con);
-                    cmd4.Parameters.Add(new SqlParameter("@licence", pharmacy.Licence));
-                    cmd4.ExecuteNonQuery();
-                    
-                    query = "SELECT TOP 1 * from PharmacyInfo order by pinfoid desc";
-                    SqlCommand cmd5 = new SqlCommand(query, con);
-                    SqlDataReader reader = cmd5.ExecuteReader();
-                    if (reader != null)
+                    string query = "SELECT username from PharmacyInfo where username = @username";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.Add(new SqlParameter("@username", pharmacy.Username));
+                    SqlDataReader reader1 = cmd.ExecuteReader();
+                    if (reader1 != null)
                     {
-                        if (reader.HasRows)
+                        if (reader1.HasRows)
                         {
-                            if (reader.Read())
+                            status = false;
+                            reader1.Close();
+                        }
+                        else
+                        {
+                            reader1.Close();
+                            query = "INSERT INTO PharmacyInfo (username, password, companyname,competentperson) " +
+                            "VALUES (@username, @password, @companyname, @competentperson)";
+                            SqlCommand cmd1 = new SqlCommand(query, con);
+                            cmd1.Parameters.Add(new SqlParameter("@username", pharmacy.Username));
+                            cmd1.Parameters.Add(new SqlParameter("@password", pharmacy.Password));
+                            cmd1.Parameters.Add(new SqlParameter("@companyname", pharmacy.Companyname));
+                            cmd1.Parameters.Add(new SqlParameter("@competentperson", pharmacy.Competentperson));
+                            cmd1.ExecuteNonQuery();
+
+                            SqlCommand cmd2 = new SqlCommand(query, con);
+                            query = "INSERT INTO PharmacyAddress (address, city, state, pincode) " +
+                               "VALUES (@address, @city, @state, @pincode)";
+                            cmd2 = new SqlCommand(query, con);
+                            cmd2.Parameters.Add(new SqlParameter("@address", pharmacy.Address));
+                            cmd2.Parameters.Add(new SqlParameter("@city", pharmacy.City));
+                            cmd2.Parameters.Add(new SqlParameter("@state", pharmacy.State));
+                            cmd2.Parameters.Add(new SqlParameter("@pincode", pharmacy.Pincode));
+                            cmd2.ExecuteNonQuery();
+
+                            SqlCommand cmd3 = new SqlCommand(query, con);
+                            query = "INSERT INTO PharmacyContact (mobile, email) " +
+                               "VALUES (@mobile, @email)";
+                            cmd3 = new SqlCommand(query, con);
+                            cmd3.Parameters.Add(new SqlParameter("@mobile", pharmacy.Mobile));
+                            cmd3.Parameters.Add(new SqlParameter("@email", pharmacy.Email));
+                            cmd3.ExecuteNonQuery();
+
+                            SqlCommand cmd4 = new SqlCommand(query, con);
+                            query = "INSERT INTO PharmacyCertification (licence) " +
+                               "VALUES (@licence)";
+                            cmd4 = new SqlCommand(query, con);
+                            cmd4.Parameters.Add(new SqlParameter("@licence", pharmacy.Licence));
+                            cmd4.ExecuteNonQuery();
+
+                            query = "SELECT TOP 1 * from PharmacyInfo order by pinfoid desc";
+                            SqlCommand cmd5 = new SqlCommand(query, con);
+                            SqlDataReader reader = cmd5.ExecuteReader();
+                            if (reader != null)
                             {
-                                infoid = int.Parse(reader["pinfoid"].ToString());
+                                if (reader.HasRows)
+                                {
+                                    if (reader.Read())
+                                    {
+                                        infoid = int.Parse(reader["pinfoid"].ToString());
+                                    }
+                                    reader.Close();
+                                }
                             }
-                            reader.Close();
+                            query = "SELECT TOP 1 * from PharmacyAddress order by paddid desc";
+                            SqlCommand cmd6 = new SqlCommand(query, con);
+                            reader = cmd6.ExecuteReader();
+                            if (reader != null)
+                            {
+                                if (reader.HasRows)
+                                {
+                                    if (reader.Read())
+                                    {
+                                        addid = int.Parse(reader["paddid"].ToString());
+                                    }
+                                    reader.Close();
+                                }
+                            }
+                            query = "SELECT TOP 1 * from PharmacyContact order by pcontactid desc";
+                            SqlCommand cmd7 = new SqlCommand(query, con);
+                            reader = cmd7.ExecuteReader();
+                            if (reader != null)
+                            {
+                                if (reader.HasRows)
+                                {
+                                    if (reader.Read())
+                                    {
+                                        contactid = int.Parse(reader["pcontactid"].ToString());
+                                    }
+                                    reader.Close();
+                                }
+                            }
+                            query = "SELECT TOP 1 * from PharmacyCertification order by pcertid desc";
+                            SqlCommand cmd8 = new SqlCommand(query, con);
+                            reader = cmd8.ExecuteReader();
+                            if (reader != null)
+                            {
+                                if (reader.HasRows)
+                                {
+                                    if (reader.Read())
+                                    {
+                                        certid = int.Parse(reader["pcertid"].ToString());
+                                    }
+                                    reader.Close();
+                                }
+                            }
+                            SqlCommand cmd9 = new SqlCommand(query, con);
+                            query = "INSERT INTO PharmacyMaster (pinfoid, paddid, pcontactid, pcertid) " +
+                                    "VALUES (@pinfoid, @paddid, @pcontactid, @pcertid)";
+                            cmd9 = new SqlCommand(query, con);
+                            cmd9.Parameters.Add(new SqlParameter("@pinfoid", infoid));
+                            cmd9.Parameters.Add(new SqlParameter("@paddid", addid));
+                            cmd9.Parameters.Add(new SqlParameter("@pcontactid", contactid));
+                            cmd9.Parameters.Add(new SqlParameter("@pcertid", certid));
+                            cmd9.ExecuteNonQuery();
+                            status = true;
                         }
                     }
-                    query = "SELECT TOP 1 * from PharmacyAddress order by paddid desc";
-                    SqlCommand cmd6 = new SqlCommand(query, con);
-                    reader = cmd6.ExecuteReader();
-                    if (reader != null)
-                    {
-                        if (reader.HasRows)
-                        {
-                            if (reader.Read())
-                            {
-                                addid = int.Parse(reader["paddid"].ToString());
-                            }
-                            reader.Close();
-                        }
-                    }
-                    query = "SELECT TOP 1 * from PharmacyContact order by pcontactid desc";
-                    SqlCommand cmd7 = new SqlCommand(query, con);
-                    reader = cmd7.ExecuteReader();
-                    if (reader != null)
-                    {
-                        if (reader.HasRows)
-                        {
-                            if (reader.Read())
-                            {
-                                contactid = int.Parse(reader["pcontactid"].ToString());
-                            }
-                            reader.Close();
-                        }
-                    }
-                    query = "SELECT TOP 1 * from PharmacyCertification order by pcertid desc";
-                    SqlCommand cmd8 = new SqlCommand(query, con);
-                    reader = cmd8.ExecuteReader();
-                    if (reader != null)
-                    {
-                        if (reader.HasRows)
-                        {
-                            if (reader.Read())
-                            {
-                                certid = int.Parse(reader["pcertid"].ToString());
-                            }
-                            reader.Close();
-                        }
-                    }
-                    SqlCommand cmd9 = new SqlCommand(query, con);
-                    query = "INSERT INTO PharmacyMaster (pinfoid, paddid, pcontactid, pcertid) " +
-                            "VALUES (@pinfoid, @paddid, @pcontactid, @pcertid)";
-                    cmd9 = new SqlCommand(query, con);
-                    cmd9.Parameters.Add(new SqlParameter("@pinfoid", infoid));
-                    cmd9.Parameters.Add(new SqlParameter("@paddid", addid));
-                    cmd9.Parameters.Add(new SqlParameter("@pcontactid", contactid));
-                    cmd9.Parameters.Add(new SqlParameter("@pcertid", certid));
-                    cmd9.ExecuteNonQuery();
-
                     if (con.State == ConnectionState.Open)
-                        con.Close();
-                    status = true;
+                    con.Close();
                 }
             }
             catch (Exception ex)

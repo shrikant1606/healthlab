@@ -85,8 +85,10 @@ namespace DAL
             return appointments;
         }
 
-        public static List<Appointment> History(int patientid)
+        public static List<Appointment> History(string username)
         {
+            int pinfoid = 0;
+            
             List<Appointment> appointments = new List<Appointment>();
             try
             {
@@ -94,10 +96,29 @@ namespace DAL
                 {
                     if (con.State == ConnectionState.Closed)
                         con.Open();
-                    string query = "SELECT DoctorInfo.firstname,DoctorInfo.lastname,AppointmentMaster.date,PrescriptionMaster.Details FROM PrescriptionMaster INNER JOIN AppointmentMaster ON PrescriptionMaster.appointmentid = AppointmentMaster.appointmentid INNER JOIN DoctorInfo ON PrescriptionMaster.dinfoid = DoctorInfo.dinfoid INNER JOIN PatientInfo ON PrescriptionMaster.pinfoid = PatientInfo.pinfoid WHERE(PrescriptionMaster.pinoid = 12)";
-                    SqlCommand cmd = new SqlCommand(query, con);
 
+                    string query = "SELECT pinfoid from PatientInfo where username=@username";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.Add(new SqlParameter("@username", username));
                     SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader != null)
+                    {
+                        if (reader.HasRows)
+                        {
+                            if (reader.Read())
+                            {
+                                {
+                                    pinfoid = int.Parse(reader["pinfoid"].ToString());
+                                };
+                            }
+                            reader.Close();
+                        }
+                    }
+
+                    query = "SELECT DoctorInfo.firstname,DoctorInfo.lastname,AppointmentMaster.date,PrescriptionMaster.Details, AppointmentMaster.status, AppointmentMaster.timeslot FROM AppointmentMaster INNER JOIN PrescriptionMaster ON PrescriptionMaster.appointmentid = AppointmentMaster.appointmentid INNER JOIN DoctorInfo ON PrescriptionMaster.dinfoid = DoctorInfo.dinfoid INNER JOIN PatientInfo ON PrescriptionMaster.pinfoid = PatientInfo.pinfoid WHERE(AppointmentMaster.pinfoid = @pinfoid)";
+                    cmd = new SqlCommand(query, con);
+                    cmd.Parameters.Add(new SqlParameter("@pinfoid", pinfoid));
+                    reader = cmd.ExecuteReader();
                     if (reader != null)
                     {
                         if (reader.HasRows)
@@ -106,11 +127,12 @@ namespace DAL
                             {
                                 Appointment history = new Appointment()
                                 {
-                                    Dfirstname=reader["firstname"].ToString(),
-                                    Dlastname=reader["lastname"].ToString(),
-                                    Details=reader["details"].ToString(),
+                                    Dfirstname = reader["firstname"].ToString(),
+                                    Dlastname = reader["lastname"].ToString(),
+                                    Details = reader["details"].ToString(),
                                     Date = reader["date"].ToString(),
-                                    
+                                    Timeslot = reader["timeslot"].ToString(),
+                                    Status = int.Parse(reader["status"].ToString())
                                 };
                                 appointments.Add(history);
                             }

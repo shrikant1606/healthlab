@@ -120,6 +120,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LaboratoryController.cs" />
@@ -288,10 +289,17 @@
     <Content Include="Views\Doctor\PatientAppointment.cshtml" />
     <Content Include="Views\Doctor\Search.cshtml" />
     <Content Include="Views\Doctor\UpdateTime.cshtml" />
-    <Content Include="Views\Pharmacy\PatientPrescription.cshtml" />
     <Content Include="Views\Doctor\AppointmentSummary.cshtml" />
     <Content Include="Views\Patient\SearchDoctor.cshtml" />
     <Content Include="Views\Patient\BookAppointment.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Patient\History.cshtml" />
+    <Content Include="Views\Patient\Feedback.cshtml" />
+    <Content Include="Views\Laboratory\Search.cshtml" />
+    <Content Include="Views\Laboratory\Details.cshtml" />
+    <Content Include="Views\Pharmacy\Search.cshtml" />
+    <Content Include="Views\Pharmacy\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
