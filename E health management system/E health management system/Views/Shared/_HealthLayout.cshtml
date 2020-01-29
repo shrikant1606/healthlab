@@ -37,6 +37,16 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a class="nav-link" href="@Url.Action("Index","Home")">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="@Url.Action("About","Home")">About</a></li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Regsitration</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                                <a class="dropdown-item" href="@Url.Action("Create","Doctor")">Doctor</a>
+                                <a class="dropdown-item" href="@Url.Action("Create","Patient")">Patient</a>
+                                <a class="dropdown-item" href="@Url.Action("Create","Pharmacy")">Pharmacy</a>
+                                <a class="dropdown-item" href="@Url.Action("Create","Laboratory")">Laboratory</a>
+                            </div>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Login</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
@@ -47,16 +57,7 @@
 
                             </div>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Regsitration</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                                <a class="dropdown-item" href="@Url.Action("Create","Doctor")">Doctor</a>
-                                <a class="dropdown-item" href="@Url.Action("Create","Patient")">Patient</a>
-                                <a class="dropdown-item" href="@Url.Action("Create","Pharmacy")">Pharmacy</a>
-                                <a class="dropdown-item" href="@Url.Action("Create","Laboratory")">Laboratory</a>
-                            </div>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Home")">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Home")">Help Desk</a></li>
                     </ul>
                 </div>
             </div>
