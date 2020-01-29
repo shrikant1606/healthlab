@@ -18,7 +18,7 @@ namespace DAL
             conString = ConfigurationManager.ConnectionStrings["e_health_db"].ConnectionString;
         }
 
-        public static List<Appointment> GetAll(string username)
+        public static List<Appointment> GetAll(string username, string date)
         {
             int dinfoid=0;
             
@@ -49,9 +49,10 @@ namespace DAL
                     }
 
 
-                    query = "SELECT AppointmentMaster.appointmentid,PatientInfo.firstname,PatientInfo.lastname,AppointmentMaster.timeslot,AppointmentMaster.date,AppointmentMaster.status FROM patientInfo INNER JOIN AppointmentMaster  on PatientInfo.pinfoid=AppointmentMaster.pinfoid where AppointmentMaster.dinfoid=@dinfoid";
+                    query = "SELECT AppointmentMaster.appointmentid,PatientInfo.firstname,PatientInfo.lastname,AppointmentMaster.timeslot,AppointmentMaster.date,AppointmentMaster.status FROM patientInfo INNER JOIN AppointmentMaster  on PatientInfo.pinfoid=AppointmentMaster.pinfoid where AppointmentMaster.dinfoid=@dinfoid and AppointmentMaster.status=0 and AppointmentMaster.date = @date";
                     cmd = new SqlCommand(query, con);
                     cmd.Parameters.Add(new SqlParameter("@dinfoid", dinfoid));
+                    cmd.Parameters.Add(new SqlParameter("@date", date));
                     reader = cmd.ExecuteReader();
                     if (reader != null)
                     {

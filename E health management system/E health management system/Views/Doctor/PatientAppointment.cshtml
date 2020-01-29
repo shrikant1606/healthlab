@@ -30,13 +30,14 @@
 
 <h2>PatientAppointment</h2>
 <div style="font-family:Arial;padding:100px 450px">
-    <table cellpadding="10" style="font-family:Arial">
+    <table cellpadding="10" border="1" style="font-family:Arial">
         <tr>
             <th>Appointment Id</th>
             <th>Patient Name</th>
             <th>Date</th>
             <th>Time Slot</th>
             <th>Status</th>
+            <th>Create Prescription</th>
         </tr>
         @foreach (BOL.Appointment appointment in @Model)
         {
@@ -54,8 +55,6 @@
                         TempData["timeslot"] = appointment.Timeslot;
                         TempData["date"] = appointment.Date;
                     }
-
-
                     @Html.ActionLink("Create Prescription", "CreatePrescription", "Doctor", new { appointment.Appointmentid, appointment.Pfirstname,
                                                                                                appointment.Plastname, appointment.Timeslot,
                                                                                                appointment.Date})
@@ -63,4 +62,6 @@
             </tr>
         }
     </table>
+    <br/>
+    <input type='button' onclick='history.back();' value='Go Back' />
 </div>

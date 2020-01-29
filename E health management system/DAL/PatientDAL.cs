@@ -174,9 +174,10 @@ namespace DAL
             return status;
         }
 
-        public static Patient PatientDetail(string firstname, string lastname)
+        public static List<Patient> PatientDetail(string firstname, string lastname)
         {
             Patient patient = null;
+            List<Patient> patients = new List<Patient>();
             try
             {
                 using (SqlConnection con = new SqlConnection(conString))
@@ -192,7 +193,7 @@ namespace DAL
                     {
                         if (reader.HasRows)
                         {
-                            if (reader.Read())
+                            while (reader.Read())
                             {
                                 patient = new Patient()
                                 {
@@ -205,6 +206,7 @@ namespace DAL
                                     Mobile = reader["mobile"].ToString(),
                                     Email = reader["email"].ToString(),
                                 };
+                                patients.Add(patient);
                             }
                             reader.Close();
                         }
@@ -215,7 +217,7 @@ namespace DAL
             }
             catch (Exception ex)
             { throw ex; }
-            return patient;
+            return patients;
         }
     }
 }

@@ -343,26 +343,7 @@ namespace DAL
                     SqlCommand cmd12 = new SqlCommand(query, con);
                     cmd12 = new SqlCommand(query, con);
                     cmd12.ExecuteNonQuery();
-                    query = "DBCC CHECKIDENT('DoctorInfo', reseed, 0)";
-                    cmd12 = new SqlCommand(query, con);
-                    cmd12 = new SqlCommand(query, con);
-                    cmd12.ExecuteNonQuery();
-                    query = "DBCC CHECKIDENT('DoctorAddress', reseed, 0)";
-                    cmd12 = new SqlCommand(query, con);
-                    cmd12 = new SqlCommand(query, con);
-                    cmd12.ExecuteNonQuery();
-                    query = "DBCC CHECKIDENT('DoctorContact', reseed, 0)";
-                    cmd12 = new SqlCommand(query, con);
-                    cmd12 = new SqlCommand(query, con);
-                    cmd12.ExecuteNonQuery();
-                    query = "DBCC CHECKIDENT('DoctorCertification', reseed, 0)";
-                    cmd12 = new SqlCommand(query, con);
-                    cmd12 = new SqlCommand(query, con);
-                    cmd12.ExecuteNonQuery();
-                    query = "DBCC CHECKIDENT('DoctorTimeSlot', reseed, 0)";
-                    cmd12 = new SqlCommand(query, con);
-                    cmd12 = new SqlCommand(query, con);
-                    cmd12.ExecuteNonQuery();
+                    
                     if (con.State == ConnectionState.Open)
                         con.Close();
                     status = true;
