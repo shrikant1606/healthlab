@@ -290,6 +290,8 @@
     <Content Include="Views\Doctor\UpdateTime.cshtml" />
     <Content Include="Views\Pharmacy\PatientPrescription.cshtml" />
     <Content Include="Views\Doctor\AppointmentSummary.cshtml" />
+    <Content Include="Views\Patient\SearchDoctor.cshtml" />
+    <Content Include="Views\Patient\BookAppointment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

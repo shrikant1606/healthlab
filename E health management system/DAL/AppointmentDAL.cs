@@ -137,9 +137,46 @@ namespace DAL
                 {
                     if (con.State == ConnectionState.Closed)
                         con.Open();
-                    string query = "INSERT INTO AppointmentMaster (dinfoid, pinfoid, timeslot, date, status) " +
-                        "VALUES (@dinfoid, @pinfoid, @timeslot, @date, @status)";
+                    string query = "SELECT pinfoid from PatientInfo where username=@username";
                     SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.Add(new SqlParameter("@username", appointment.Pusername));
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader != null)
+                    {
+                        if (reader.HasRows)
+                        {
+                            if (reader.Read())
+                            {
+                                {
+                                    appointment.Pinfoid = int.Parse(reader["pinfoid"].ToString());
+                                };
+                            }
+                            reader.Close();
+                        }
+                    }
+
+                    query = "SELECT dinfoid from DoctorInfo where firstname=@firstname and lastname=@lastname";
+                    cmd = new SqlCommand(query, con);
+                    cmd.Parameters.Add(new SqlParameter("@firstname", appointment.Dfirstname));
+                    cmd.Parameters.Add(new SqlParameter("@lastname", appointment.Dlastname));
+                    reader = cmd.ExecuteReader();
+                    if (reader != null)
+                    {
+                        if (reader.HasRows)
+                        {
+                            if (reader.Read())
+                            {
+                                {
+                                    appointment.Dinfoid = int.Parse(reader["dinfoid"].ToString());
+                                };
+                            }
+                            reader.Close();
+                        }
+                    }
+
+                    query = "INSERT INTO AppointmentMaster (dinfoid, pinfoid, timeslot, date, status) " +
+                        "VALUES (@dinfoid, @pinfoid, @timeslot, @date, @status)";
+                    cmd = new SqlCommand(query, con);
                     cmd.Parameters.Add(new SqlParameter("@dinfoid", appointment.Dinfoid));
                     cmd.Parameters.Add(new SqlParameter("@pinfoid", appointment.Pinfoid));
                     cmd.Parameters.Add(new SqlParameter("@timeslot", appointment.Timeslot));

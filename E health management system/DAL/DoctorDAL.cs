@@ -243,8 +243,9 @@ namespace DAL
             return status;
         }
 
-        public static List<Doctor> GetAll()
+        public static List<Doctor> GetAll(string specialization)
         {
+
             List<Doctor> doctors = new List<Doctor>();
             try
             {
@@ -252,9 +253,9 @@ namespace DAL
                 {
                     if (con.State == ConnectionState.Closed)
                         con.Open();
-                    string query = "SELECT * FROM DoctorInfo";
+                    string query = "SELECT DoctorInfo.firstname, DoctorInfo.lastname, DoctorCertification.experience, DoctorMaster.dcertid FROM DoctorCertification Inner join DoctorMaster on DoctorMaster.dcertid=DoctorCertification.dcertid Inner join DoctorInfo on DoctorMaster.dinfoid=DoctorInfo.dinfoid where DoctorCertification.specialization=@specialization";
                     SqlCommand cmd = new SqlCommand(query, con);
-
+                    cmd.Parameters.Add(new SqlParameter("@specialization", specialization));
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader != null)
                     {
@@ -283,7 +284,7 @@ namespace DAL
             return doctors;
         }
 
-        public static Doctor Get(string firstname)
+        public static Doctor Get(string firstname, string lastname)
         {
             Doctor doctor = null;
             try
@@ -292,9 +293,10 @@ namespace DAL
                 {
                     if (con.State == ConnectionState.Closed)
                         con.Open();
-                    string query = "SELECT DoctorInfo.firstname, DoctorInfo.lastname, DoctorAddress.address, DoctorAddress.city, DoctorAddress.state, DoctorContact.mobile, DoctorContact.email, DoctorCertification.specialization, DoctorCertification.fees, DoctorCertification.certification, DoctorTimeSlot.checkin, DoctorTimeSlot.checkout FROM DoctorInfo INNER JOIN DoctorMaster on DoctorInfo.dinfoid=DoctorMaster.dinfoid INNER JOIN DoctorAddress on DoctorMaster.daddid=DoctorAddress.daddid                       INNER JOIN DoctorContact on DoctorMaster.dcontactid=DoctorContact.dcontactid INNER JOIN DoctorCertification on DoctorMaster.dcertid=DoctorCertification.dcertid INNER JOIN DoctorTimeSlot on DoctorMaster.dtimeid=DoctorTimeSlot.dtimeid WHERE (DoctorInfo.firstname=@firstname)";
+                    string query = "SELECT DoctorInfo.firstname, DoctorInfo.lastname, DoctorAddress.address, DoctorAddress.city, DoctorAddress.state, DoctorContact.mobile, DoctorContact.email, DoctorCertification.specialization, DoctorCertification.fees, DoctorCertification.certification, DoctorTimeSlot.checkin, DoctorTimeSlot.checkout FROM DoctorInfo INNER JOIN DoctorMaster on DoctorInfo.dinfoid=DoctorMaster.dinfoid INNER JOIN DoctorAddress on DoctorMaster.daddid=DoctorAddress.daddid                       INNER JOIN DoctorContact on DoctorMaster.dcontactid=DoctorContact.dcontactid INNER JOIN DoctorCertification on DoctorMaster.dcertid=DoctorCertification.dcertid INNER JOIN DoctorTimeSlot on DoctorMaster.dtimeid=DoctorTimeSlot.dtimeid WHERE (DoctorInfo.firstname=@firstname and DoctorInfo.lastname=@lastname)";
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.Add(new SqlParameter("@firstname", firstname));
+                    cmd.Parameters.Add(new SqlParameter("@lastname", lastname));
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader != null)
                     {

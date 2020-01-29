@@ -13,6 +13,7 @@ namespace BOL
         private int dinfoid;
         private int pinfoid;
         private int prescriptionid;
+        private string pusername;
         private string pfirstname;
         private string plastname;
         private string dfirstname;
@@ -68,6 +69,11 @@ namespace BOL
         {
             get { return prescriptionid; }
             set { prescriptionid = value; }
+        }
+        public string Pusername
+        {
+            get { return pusername; }
+            set { pusername = value; }
         }
         public string Pfirstname
         {

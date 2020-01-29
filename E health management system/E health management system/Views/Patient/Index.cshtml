@@ -41,18 +41,19 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbars-rs-food">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="@Url.Action("Index","Home")">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Home")">Doctor List</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="@Url.Action("Index","Patient")">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("SearchDoctor","Patient")">Doctor List</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Search</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                                <a class="dropdown-item" href="@Url.Action("Login","Doctor")">Search Doctor</a>                   
+                                <a class="dropdown-item" href="@Url.Action("Login","Doctor")">Search Doctor</a>
                                 <a class="dropdown-item" href="@Url.Action("Login","Pharmacy")">Search Pharmacy</a>
-                           </div>
-                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Home")">Book Appointment</a></li>
-                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Home")">History</a></li>
-                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Home")">Reports</a></li>
-                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Home")">Feedback</a></li>
+                            </div>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Patient")">Book Appointment</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Patient")">History</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Patient")">Reports</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact","Patient")">Feedback</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Index","Home")">Logout</a></li>
                     </ul>
                 </div>
             </div>

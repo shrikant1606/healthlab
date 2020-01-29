@@ -17,20 +17,6 @@ namespace E_Health.Controllers
             return View();
         }
         
-        public ActionResult ListDoctors()
-        {
-            List<Doctor> doctorList = new List<Doctor>();
-            doctorList = DoctorDAL.GetAll();
-            return View(doctorList);
-        }
-
-        // GET: Patient/Details/5
-        public ActionResult Details(string name)
-        {
-            Doctor doctor = DoctorDAL.Get(name);
-            return View(doctor);
-        }
-        
         public ActionResult Login()
         {
             return View();
@@ -41,6 +27,7 @@ namespace E_Health.Controllers
         {
             if (PatientDAL.ValidateUser(username,password))
             {
+                TempData["username"] = username;
                 return RedirectToAction("Index");
             }
             else
@@ -49,7 +36,7 @@ namespace E_Health.Controllers
                 return View();
             }
         }
-
+        
         // GET: Patient/Create
         [ActionName("Create")]
         public ActionResult Create_Get()
@@ -77,19 +64,55 @@ namespace E_Health.Controllers
             }
         }
 
-        // GET: Patient/BookAppointment 
-        [ActionName("BookAppointment")]
-        public ActionResult BookAppointment_Get(string dname)
+        public ActionResult SearchDoctor()
         {
-            return View(dname);
+            return View();
         }
 
-        // POST: Patient/Create
+        public ActionResult ListDoctors(string specialization)
+        {
+            if (ModelState.IsValid)
+            {
+                List<Doctor> doctorList = new List<Doctor>();
+                doctorList = DoctorDAL.GetAll(specialization);
+                return View(doctorList);
+            }
+            else
+            {
+                ModelState.AddModelError("", "Select Specialization");
+                return View();
+            }
+        }
+
+        // GET: Patient/Details/5
+        public ActionResult Details()
+        {
+            string dfirstname = TempData["dfirstname"].ToString();
+            TempData.Keep();
+            string dlastname = TempData["dlastname"].ToString();
+            TempData.Keep();
+            Doctor doctor = DoctorDAL.Get(dfirstname,dlastname);
+            return View(doctor);
+        }
+        // GET: Patient/BookAppointment 
+        [HttpGet]
+        [ActionName("BookAppointment")]
+        public ActionResult BookAppointment_Get()
+        {
+            return View();
+        }
+        
         [HttpPost]
         [ActionName("BookAppointment")]
         public ActionResult BookAppointment_Post(FormCollection collection)
         {
             Appointment appointment = new Appointment();
+            appointment.Pusername = TempData["username"].ToString();
+            TempData.Keep();
+            appointment.Dfirstname = TempData["drfirstname"].ToString();
+            TempData.Keep();
+            appointment.Dlastname = TempData["drlastname"].ToString();
+            TempData.Keep();
 
             TryUpdateModel(appointment);
             if (ModelState.IsValid)

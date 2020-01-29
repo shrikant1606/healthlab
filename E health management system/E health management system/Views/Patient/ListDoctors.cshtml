@@ -2,21 +2,26 @@
 @{
     ViewBag.Title = "ListDoctors";
 }
+<div style="padding:200px 550px">
+    <h2 style="text-align:center">Doctors Available</h2>
+    <br />
+    <br />
+    <div style="font-family:Arial">
 
-<h2 style="text-align:center">Doctors Available</h2>
-<br />
-<br />
-<div style="font-family:Arial">
-
-    <ul>
-        @foreach (BOL.Doctor doctor in @Model)
-        {
+        <ul>
+            @foreach (BOL.Doctor doctor in @Model)
+            {
             <li>
-                @doctor.Lastname
-                @Html.ActionLink(doctor.Firstname, "details",
-                             new { name = doctor.Firstname })
+                Dr. @doctor.Firstname @doctor.Lastname
+                @{
+                    TempData["dfirstname"] = doctor.Firstname;
+                    TempData["dlastname"] = doctor.Lastname;
+                }
+                @Html.ActionLink("Details", "Details", "Patient")
             </li>
-        }
-    </ul>
-    @Html.ActionLink("Back to Home", "Index", "Home")
+            }
+        </ul>
+    </div>
+    <br />
+    <input type='button' onclick='history.back();' value='Go Back' />
 </div>
